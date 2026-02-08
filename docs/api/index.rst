@@ -15,6 +15,11 @@ Basic Localhost Example
 
 .. code:: python
 
+   # Clients using the API should also patch at the start of the execution as
+   # CLI does to avoid problems with stdlib usage later
+   from gevent import monkey
+   monkey.patch_all()
+
    from pyinfra.api import Config, Inventory, State
    from pyinfra.api.connect import connect_all
    from pyinfra.api.operation import add_op

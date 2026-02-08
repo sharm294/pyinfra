@@ -321,6 +321,8 @@ def line(
         This will ensure that the ``line`` being appended is always on a separate new
         line in case the file doesn't end with a newline character.
 
+    Notes:
+        This operation will create a file if it doesn't already exist.
 
     **Examples:**
 

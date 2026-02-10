@@ -42,7 +42,7 @@ class Inventory:
     def empty():
         return Inventory(([], {}))
 
-    def __init__(self, names_data, override_data=None, groups = None):
+    def __init__(self, names_data, override_data=None, **groups):
         # Setup basics
         self.groups = defaultdict(list)  # lists of Host objects
         self.host_data: dict[str, dict] = defaultdict(dict)  # dict of name -> data
@@ -55,7 +55,7 @@ class Inventory:
         self.data = data
 
         # Create the actual host instances and groups
-        self.make_hosts_and_groups(names, groups or {})
+        self.make_hosts_and_groups(names, groups)
 
     def make_hosts_and_groups(self, names, groups) -> None:
         all_connectors = get_all_connectors()
